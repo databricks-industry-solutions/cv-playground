@@ -1,1 +1,94 @@
-# Check here to get the latest version of the databricks-cli: https://github.com/databricks/cli
+# ============================================================================
+# CV Playground - YOLO Instance Segmentation on Databricks
+# Dependencies for Computer Vision model training and inference
+# ============================================================================
+
+# Core Deep Learning Frameworks
+# ----------------------------------------------------------------------------
+ultralytics==8.3.200          # YOLO framework for object detection & segmentation
+torch==2.6.0                  # PyTorch deep learning framework (use +cu124 for CUDA 12.4)
+torchvision>=0.16.0           # Computer vision utilities for PyTorch
+
+# MLflow & Experiment Tracking
+# ----------------------------------------------------------------------------
+mlflow>=2.21.3                # Experiment tracking, model logging, and deployment
+
+# Scientific Computing & Data Processing
+# ----------------------------------------------------------------------------
+numpy>=1.24.0                 # Numerical computing
+pandas>=2.0.0                 # Data manipulation and analysis
+scikit-learn==1.7.2           # Machine learning utilities and metrics
+
+# Computer Vision & Image Processing
+# ----------------------------------------------------------------------------
+opencv-python>=4.8.0          # Image processing and computer vision (cv2)
+Pillow>=10.0.0                # Python Imaging Library
+
+# Visualization
+# ----------------------------------------------------------------------------
+matplotlib==3.10.7            # Plotting and visualization
+seaborn>=0.12.0               # Statistical data visualization
+
+# GPU Monitoring & Management
+# ----------------------------------------------------------------------------
+nvidia-ml-py>=12.0.0          # NVIDIA Management Library for GPU monitoring
+pyrsmi==0.2.0                 # AMD GPU monitoring (optional, for AMD systems)
+
+# Performance & Threading
+# ----------------------------------------------------------------------------
+threadpoolctl==3.6.0          # Thread pool management for numerical libraries
+
+# Databricks Specific
+# ----------------------------------------------------------------------------
+# serverless_gpu                # Databricks serverless GPU utilities (pre-installed on Databricks)
+# databricks-cli                # Databricks CLI for deployment and testing (optional)
+
+# Additional Utilities
+# ----------------------------------------------------------------------------
+PyYAML>=6.0                   # YAML file parsing for configuration files
+tqdm>=4.65.0                  # Progress bars (included with ultralytics)
+requests>=2.28.0              # HTTP library
+
+# ============================================================================
+# Installation Notes:
+# ============================================================================
+# 
+# 1. For local development with CUDA support:
+#    pip install torch==2.6.0+cu124 -f https://download.pytorch.org/whl/torch_stable.html
+#
+# 2. For Databricks deployment:
+#    - Install via notebook: %pip install -r requirements.txt
+#    - Or via cluster libraries UI
+#    - serverless_gpu is pre-installed on Databricks Serverless GPU compute
+#
+# 3. Minimum Python version: 3.10+
+#
+# 4. For CPU-only installation (no CUDA):
+#    pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#
+# 5. To check installed versions:
+#    pip list | grep -E "torch|ultralytics|mlflow|opencv"
+#
+# ============================================================================
+# Version Compatibility Notes:
+# ============================================================================
+#
+# Tested Configurations:
+# - ultralytics 8.3.200 + torch 2.6.0 + CUDA 12.4
+# - ultralytics 8.3.204 + torch 2.7.1 + CUDA 12.6
+# - Python 3.12 on Databricks Runtime ML 15.x
+#
+# CUDA Requirements:
+# - CUDA 12.4 or higher recommended
+# - cuDNN 8.x or higher
+# - For multi-GPU: NCCL 2.26+ (included with PyTorch)
+#
+# Databricks Runtime:
+# - Databricks Runtime ML 15.x or higher recommended
+# - Unity Catalog enabled
+# - Serverless GPU compute or GPU cluster (A10, A100, or H100)
+#
+# ============================================================================
+
+# Check here for the latest version of the databricks-cli: 
+# https://github.com/databricks/cli

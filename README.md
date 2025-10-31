@@ -8,9 +8,7 @@
 
 ## Overview
 
-This repository is intended to be a _`"playground"`_ where we share **Applications of Computer Vision Solutions on Databricks**.   
-As a start we will highlight [Instance Segmentation](https://www.ultralytics.com/glossary/instance-segmentation) application(s) in medical imaging using [Ultralytics **YOLO** (You Only Look Once)](https://github.com/ultralytics/ultralytics) framework.    
-Other CV applications will be added when available.    
+This repository is intended to be a _`"playground"`_ where we share **Applications of Computer Vision Solutions on Databricks**. As a start we will highlight [Instance Segmentation](https://www.ultralytics.com/glossary/instance-segmentation) application(s) in medical imaging using [Ultralytics **YOLO** (You Only Look Once)](https://github.com/ultralytics/ultralytics) framework. Other CV applications will be added when available.    
 <!-- _... stay tuned!_   -->    
 
 ---   

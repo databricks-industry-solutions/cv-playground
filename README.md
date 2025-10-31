@@ -11,8 +11,7 @@
 This repository is intended to be a _`"playground"`_ where we share **Applications of Computer Vision Solutions on Databricks**.   
 As a start we will highlight [Instance Segmentation](https://www.ultralytics.com/glossary/instance-segmentation) application(s) in medical imaging using [Ultralytics **YOLO** (You Only Look Once)](https://github.com/ultralytics/ultralytics) framework.    
 Other CV applications will be added when available.    
-<!-- _... stay tuned!_   -->   
-<br>   
+<!-- _... stay tuned!_   -->    
 
 ---   
 
@@ -29,8 +28,7 @@ Our example walkthrough highlights the following:
 | Transfer Learning | Using [YOLO11 for instance segmentation](https://docs.ultralytics.com/tasks/segment/). <br>Transfer learning reduces training time and improves performance on custom datasets—even with limited labeled data. <br>Highly relevant e.g. in medical imaging, where annotated data is scarce and model generalization is critical. |
 | [MLflow Integration](https://mlflow.org/docs/latest/) | Integrates [Databricks managed MLflow](https://docs.databricks.com/aws/en/mlflow/#databricks-managed-mlflow) for experiment tracking, model logging, and artifact management—essential for reproducibility, model versioning, and collaborative workflow. |
 | [Unity Catalog Volumes](https://docs.databricks.com/data-governance/unity-catalog/index.html) | Provides data governance and storage, crucial for modern MLOps. Enables secure, governed, and scalable storage with fine-grained access control, reproducible workflows, data lineage, and compliance across collaborative ML projects. |    
-
-<br>       
+   
 
 ---   
 
@@ -40,7 +38,6 @@ Clone this repository to your Databricks Workspace.
 You will find the example applications in each subfolder within the `/notebooks` folder.   
 Follow the `README.md` within each of the `/notebooks/{application_example_folder}/README.md` to get started.  
 
-<br>    
 ---     
 
 
@@ -50,13 +47,11 @@ Follow the `README.md` within each of the `/notebooks/{application_example_folde
 
 Please refer to [REPO_structure.md](REPO_structure.md) and [CONTRIBUTING.md](CONTRIBUTING.md) for more details and guidance.    
 
-<br>  
 ---   
 
 ## How to get help
 Databricks support doesn't cover this content. For questions or bugs, please open a GitHub issue and the team will help on a best effort basis.   
 
-<br>  
 ---   
 
 ## Licenses
@@ -76,6 +71,5 @@ All included or referenced third party libraries are subject to the licenses set
 | [Matplotlib](https://matplotlib.org/) | PSF-based | Matplotlib Development Team |
 | [scikit-learn](https://scikit-learn.org/) | BSD-3-Clause | scikit-learn Developers |   
 
-<br>  
 ---   
 

@@ -1,13 +1,5 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC - This is a standalone example of how to run YOLO Instance Segmentation on a custom dataset with [serverless gpu compute (SGC)](https://www.databricks.com/glossary/serverless-computing).   
-# MAGIC - The example solution will be part of the assets within the forthcoming [databricks-industry-solutions/cv-playground](https://github.com/databricks-industry-solutions/cv-playground) that will show case other CV-related solutions on Databricks.     
-# MAGIC - Developed and last tested [`2025Oct24`] using `sgc_A10` with pinned dependencies by `may.merkletan@databricks.com`.  
-# MAGIC - **v0.3.3**: Simplified version using utility modules - includes both default YOLO approach and improved MLflow-integrated approach.  
-
-# COMMAND ----------
-
-# MAGIC %md
 # MAGIC ## Quick Overview: 
 # MAGIC <br> 
 # MAGIC
@@ -56,7 +48,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Applying `YOLO_v11` Instance Segmentation within Databricks 
+# MAGIC ### Applying `YOLO_v11` Instance Segmentation within Databricks 
 # MAGIC In the rest of this notebook, we will provide an example of how to leverage [YOLO Instance Segmentation](https://docs.ultralytics.com/tasks/segment/) model in _transfer learning_.     
 # MAGIC  
 # MAGIC Specifically, we will _finetune_ the `YOLO_v11 Instance Segmentation` model on a new dataset, the [NuInsSeg Dataset](https://github.com/masih4/NuInsSeg/tree/main?tab=readme-ov-file#nuinsseg--a-fully-annotated-dataset-for-nuclei-instance-segmentation-in-he-stained-histological-images), _one of the largest publicly available datasets of segmented nuclei in [H&E-Stained](https://en.wikipedia.org/wiki/H%26E_stain) Histological Images_ (images below of the flow of processes illustrate how these sample data are typically derived).   
@@ -71,7 +63,8 @@
 # MAGIC We will run the _finetuning_ on the Databricks Intelligence platform using [serverless compute](https://www.databricks.com/glossary/serverless-computing). 
 # MAGIC <!-- preprocessed in workspace folder -->
 # MAGIC To focus our example on the application of YOLO Instance Segmentation, we have already pre-processed the [NuInsSeg Dataset](https://github.com/masih4/NuInsSeg/tree/main?tab=readme-ov-file#nuinsseg--a-fully-annotated-dataset-for-nuclei-instance-segmentation-in-he-stained-histological-images) images in [YOLO format](https://docs.ultralytics.com/datasets/segment/) and included them within the `datasets` folder within the workspace path where this notebook resides.    
-# MAGIC Along with the `datasets`, we also have information on how the data is organized within the corresponding `data.yaml`. 
+# MAGIC Along with the `datasets`, we also have information on how the data is organized within the corresponding `data.yaml`.    
+# MAGIC
 # MAGIC ### What this notebook walks you through:  
 # MAGIC **[1] _`Default`_ YOLO setup on serverless compute for transfer learning + quick inference    
 # MAGIC [2] Integration with [Databricks managed MLflow](https://www.databricks.com/product/managed-mlflow) wrt model development tracking and logging + inference using the best checkpoint of the trained YOLO segmentation model.**
@@ -267,7 +260,7 @@ paths = setup_yolo_paths(
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC #### We will first illustrate the `Default` local workspace paths used by Ultralytics.
+# MAGIC ### We will first illustrate the `Default` local workspace paths used by Ultralytics.
 # MAGIC We will re-define these default paths later to illustrate how one would use the preprocessed image datasets ingested and written to UC Vols. and organize the generated assets in model training 
 
 # COMMAND ----------
@@ -363,7 +356,7 @@ if yolo_default==True:
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Quick Inference with default YOLO framework + Workspace datapath best weights 
+# MAGIC #### Quick Inference with default YOLO framework + Workspace datapath best weights 
 
 # COMMAND ----------
 
@@ -474,7 +467,7 @@ plt.show()
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Data Preparation: Copy YOLO Images to Unity Catalog Volumes
+# MAGIC #### Data Preparation: Copy YOLO Images to Unity Catalog Volumes
 # MAGIC To make sure we have sufficient space and paths to organize our training outputs, MLflow tracking, and logging, we will copy our workspace YOLO formatted data to UC Volumes. 
 # MAGIC _The [NuInsSeg data](https://github.com/masih4/NuInsSeg/tree/main?tab=readme-ov-file#nuinsseg--a-fully-annotated-dataset-for-nuclei-instance-segmentation-in-he-stained-histological-images), while not huge in size, takes about 5-10 mins for the copying to UC Volumes. Ideally the data is downloaded to UC Vols and the preprocessed versions are updated in UC via medallion ETL. For the simplicity of this example we make them available via the workspace path as a start._
 
@@ -1497,7 +1490,7 @@ if not status['ready']:
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Specify & Organize Training Paths 
+# MAGIC #### Specify & Organize Training Paths 
 
 # COMMAND ----------
 
@@ -1566,7 +1559,7 @@ if next(model.parameters()).device.type != 'cuda':
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Transfer Learning: Run on Serverless GPU with MLflow Integration
+# MAGIC #### Transfer Learning: Run on Serverless GPU with MLflow Integration
 
 # COMMAND ----------
 
@@ -1728,7 +1721,7 @@ print(f"Run ID: {run_id}")
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Post-Training: Validation (optional) + Test Inference + Visualization
+# MAGIC #### Post-Training: Validation (optional) + Test Inference + Visualization
 # MAGIC With the model trained and checkpoints saved, we can now:
 # MAGIC 1. Load the best model from the training run
 # MAGIC 2. Run inference on (validation and) test sets
@@ -1821,8 +1814,8 @@ test_predict_summary = run_inference_with_metrics(
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ------------------------------------------------------------------
-# MAGIC ### Summary
+# MAGIC
+# MAGIC ## Summary
 # MAGIC ------------------------------------------------------------------ 
 # MAGIC In this notebook we demonstrated how to leverage the YOLO instance segmentation model on a custom nuclei dataset preprocessed in YOLO format and saved on Unity Catalog volumes.
 # MAGIC

@@ -13,7 +13,7 @@ This repository is intended to be a _`"playground"`_ where we share **Applicatio
 
 ---   
 
-#### YOLO Instance Segmentation of Nuclei 
+#### YOLO Instance Segmentation of CellType Nuclei 
 
 The application demonstrates how we can [fine-tune](https://docs.ultralytics.com/guides/model-evaluation-insights/#how-does-fine-tuning-work) custom data ([pre-formatted for YOLO framework](https://docs.ultralytics.com/datasets/segment/)) using [YOLO Instance Segmentation CV model](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/11/yolo11-seg.yaml).
 

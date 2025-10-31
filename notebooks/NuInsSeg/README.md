@@ -114,7 +114,7 @@ The repository includes detailed analysis of multi-node training challenges:
 
 See `02_CellTypes_InstanceSeg_TransferLearn_sgcA10_MultipleGPU_MlflowLoggingModel.py` [to standardize nameing convention] for full details. --> 
 
-<!-- ---       --> 
+---  
 
 ##### Dependencies used in this cv-application use case and corresponding licenses:
 

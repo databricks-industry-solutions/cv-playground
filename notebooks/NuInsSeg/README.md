@@ -46,17 +46,17 @@ An overivew of the features integrated in our example walkthrough:
     - Full MLflow integration with checkpointing  
     - Inference with metrics and visualizations  
        
-    - **Key Results**: 50 epochs training (~2 hours), comprehensive metrics tracking, automated inference pipeline
-        - _update to use smaller number of epochs for preliminary quick tests_
+- **Key Results**: 50 epochs training (~2 hours), comprehensive metrics tracking, automated inference pipeline
+        - _update to use smaller number of epochs for preliminary quick tests_  
               
-    - **Utility Helper Modules: `notebooks/NuInsSeg/InstanceSegmentation_sgc/utils/`**
+- **Utility Helper Modules: `notebooks/NuInsSeg/InstanceSegmentation_sgc/utils/`**
         - `mlflow_callbacks.py` - MLflow integration, checkpointing, best model tracking
         - `inference_utils.py` - Model loading, inference, metrics calculation
         - `visualization_utils.py` - Prediction visualizations, comparison plots
         - `yolo_utils.py` - Path management, environment setup, data validation
         - `summary_utils.py` - Training and inference summaries, markdown export
         - `cache_utils.py` - CUDA cache management, GPU monitoring
-        - `resume_callbacks.py` - Training resume functionality
+        - `resume_callbacks.py` - Training resume functionality  
              
     - **Production-ready MLflow integration:**  
         - **Custom Callbacks**
@@ -77,7 +77,7 @@ An overivew of the features integrated in our example walkthrough:
                
             ```
 
-        - **Metrics Tracked**
+        - **Metrics Tracked & Logged**
             - **`Training`**: Box loss, segmentation loss, class loss, DFL loss
             - **`Validation`**: mAP50, mAP50-95 (box and mask), precision, recall
             - **`Best Model`**: Fitness score (0.1 × mAP50 + 0.9 × mAP50-95)

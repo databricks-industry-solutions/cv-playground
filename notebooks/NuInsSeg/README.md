@@ -15,7 +15,7 @@ An overivew of the features integrated in our example walkthrough:
    
 ---   
 
-### Basic Requirements
+#### Basic Requirements
 
 - Databricks workspace with GPU compute access (Serverless GPU or classic GPU clusters)
 - Unity Catalog enabled
@@ -30,7 +30,7 @@ An overivew of the features integrated in our example walkthrough:
 - Python 3.10+   
 ---   
 
-## Path & Notebooks
+#### Main {`sub`} Path & Notebooks
 
 **PATH: `~/notebooks/NuInsSeg/InstanceSegmentation_sgc/`**
 

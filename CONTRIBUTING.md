@@ -1,8 +1,6 @@
 ## Please follow these guidelines to ensure smooth collaboration and maintain code quality.
-<br>  
 
 --- 
-<br>
 
 ### Creating New CV-Playground Applications on Databricks Examples
 - Please review [REPO_structure.md](REPO_structure.md) before getting started.
@@ -44,10 +42,8 @@
 - Keep commit messages concise yet meaningful.
 
 - Ensure all documentation and examples are up to date.   
-<br>
 
 ---   
-<br>
 
 ## Contributor License Agreement (CLA)
 

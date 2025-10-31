@@ -38,7 +38,8 @@ Our example walkthrough highlights the following:
 
 Clone this repository to your Databricks Workspace.  
 You will find the example applications in each subfolder within the `/notebooks` folder.   
-Follow the `README.md` within each of the `/notebooks/{application_example_folder}/README.md` to get started.      
+Follow the `README.md` within each of the `/notebooks/{application_example_folder}/README.md` to get started.  
+
 <br>    
 ---     
 
@@ -48,11 +49,13 @@ Follow the `README.md` within each of the `/notebooks/{application_example_folde
 **We welcome contributions!**  
 
 Please refer to [REPO_structure.md](REPO_structure.md) and [CONTRIBUTING.md](CONTRIBUTING.md) for more details and guidance.    
+
 <br>  
 ---   
 
 ## How to get help
 Databricks support doesn't cover this content. For questions or bugs, please open a GitHub issue and the team will help on a best effort basis.   
+
 <br>  
 ---   
 
@@ -71,7 +74,8 @@ All included or referenced third party libraries are subject to the licenses set
 | [NumPy](https://numpy.org/) | BSD-3-Clause | NumPy Developers |
 | [Pandas](https://pandas.pydata.org/) | BSD-3-Clause | Pandas Development Team |
 | [Matplotlib](https://matplotlib.org/) | PSF-based | Matplotlib Development Team |
-| [scikit-learn](https://scikit-learn.org/) | BSD-3-Clause | scikit-learn Developers |  
+| [scikit-learn](https://scikit-learn.org/) | BSD-3-Clause | scikit-learn Developers |   
+
 <br>  
 ---   
 

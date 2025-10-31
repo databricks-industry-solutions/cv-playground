@@ -33,64 +33,65 @@ An overivew of the features integrated in our example walkthrough:
 **PATH: `~/notebooks/NuInsSeg/InstanceSegmentation_sgc/`**
 
 <!-- **1.**  -->
-**Single-Node Serverless GPU Training**    
-- **NOTEBOOK: `CellTypes_InstanceSeg_TransferLearn_serverlessA10_v0.3.3.py`**    
-    - Transfer learning with YOLO11n-seg 
-        1. Default YOLO framework
-        1. MLflow tracking | logging | inferencing + UC Volumes integration 
-           
-    - NuInsSeg dataset (665 images: 399 train, 133 val, 133 test)  
-    - Single A10 GPU on Serverless Compute  
-    - Full MLflow integration with checkpointing  
-    - Inference with metrics and visualizations  
-       
-- **Key Results**: 50 epochs training (~2 hours), comprehensive metrics tracking, automated inference pipeline
+- **Single-Node Serverless GPU Training**    
+    - **NOTEBOOK: `CellTypes_InstanceSeg_TransferLearn_serverlessA10_v0.3.3.py`**    
+        - Transfer learning with YOLO11n-seg 
+            1. Default YOLO framework
+            1. MLflow tracking | logging | inferencing + UC Volumes integration 
+            
+        - NuInsSeg dataset (665 images: 399 train, 133 val, 133 test)  
+        - Single A10 GPU on Serverless Compute  
+        - Full MLflow integration with checkpointing  
+        - Inference with metrics and visualizations  
+        
+    - **Key Results**: 50 epochs training (~2 hours), comprehensive metrics tracking, automated inference pipeline
         - _update to use smaller number of epochs for preliminary quick tests_  
               
-- **Utility Helper Modules: `notebooks/NuInsSeg/InstanceSegmentation_sgc/utils/`**
-        - `mlflow_callbacks.py` - MLflow integration, checkpointing, best model tracking
-        - `inference_utils.py` - Model loading, inference, metrics calculation
-        - `visualization_utils.py` - Prediction visualizations, comparison plots
-        - `yolo_utils.py` - Path management, environment setup, data validation
-        - `summary_utils.py` - Training and inference summaries, markdown export
-        - `cache_utils.py` - CUDA cache management, GPU monitoring
-        - `resume_callbacks.py` - Training resume functionality  
-             
-    - **Production-ready MLflow integration:**  
-        - **Custom Callbacks**
-            ```python
+    - **Utility Helper Modules: `notebooks/NuInsSeg/InstanceSegmentation_sgc/utils/`**    
+            - `mlflow_callbacks.py` - MLflow integration, checkpointing, best model tracking    
+            - `inference_utils.py` - Model loading, inference, metrics calculation    
+            - `visualization_utils.py` - Prediction visualizations, comparison plots    
+            - `yolo_utils.py` - Path management, environment setup, data validation    
+            - `summary_utils.py` - Training and inference summaries, markdown export    
+            - `cache_utils.py` - CUDA cache management, GPU monitoring    
+            - `resume_callbacks.py` - Training resume functionality      
+        <br> 
+                  
+        - **Production-ready MLflow integration:**  
+            - **Custom Callbacks**
+                ```python
 
-            from utils import mlflow_epoch_logger, configure_checkpoint_logging
+                from utils import mlflow_epoch_logger, configure_checkpoint_logging
 
-            # Configure checkpoint frequency
-            configure_checkpoint_logging(
-                frequency=10,      # Log every 10 epochs
-                log_best=True,     # Always log best model
-                log_final=True,    # Log final epoch
-                log_first=True     # Log first epoch
-            )
+                # Configure checkpoint frequency
+                configure_checkpoint_logging(
+                    frequency=10,      # Log every 10 epochs
+                    log_best=True,     # Always log best model
+                    log_final=True,    # Log final epoch
+                    log_first=True     # Log first epoch
+                )
 
-            # Register callback
-            model.add_callback("on_fit_epoch_end", mlflow_epoch_logger)
-               
-            ```
+                # Register callback
+                model.add_callback("on_fit_epoch_end", mlflow_epoch_logger)
+                
+                ```
 
-        - **Metrics Tracked & Logged**
-            - **`Training`**: Box loss, segmentation loss, class loss, DFL loss
-            - **`Validation`**: mAP50, mAP50-95 (box and mask), precision, recall
-            - **`Best Model`**: Fitness score (0.1 × mAP50 + 0.9 × mAP50-95)
+            - **Metrics Tracked & Logged**
+                - **`Training`**: Box loss, segmentation loss, class loss, DFL loss
+                - **`Validation`**: mAP50, mAP50-95 (box and mask), precision, recall
+                - **`Best Model`**: Fitness score (0.1 × mAP50 + 0.9 × mAP50-95)
 
-        - **Artifacts Logged** [including YOLO defaults]
-            - Model checkpoints (configurable frequency)
-            - Best model weights
-            - Training plots and metrics CSV
-            - Dataset configuration (`data.yaml`)
-            - Inference visualizations (customizable via code)  
+            - **Artifacts Logged** [including YOLO defaults]
+                - Model checkpoints (configurable frequency)
+                - Best model weights
+                - Training plots and metrics CSV
+                - Dataset configuration (`data.yaml`)
+                - Inference visualizations (customizable via code)  
 
 <!-- ---     -->
 <!-- **2.**  -->
 
-**Multi-Node Serverless GPU Training** [forthcoming...]   
+- **Multi-Node Serverless GPU Training** [forthcoming...]   
 <!-- ---     -->
 
 <!-- - **NOTEBOOK: `02_CellTypes_InstanceSeg_TransferLearn_sgcA10_MultipleGPU_MlflowLoggingModel.py`** [to standardize nameing convention]  

@@ -68,6 +68,7 @@ All included or referenced third party libraries are subject to the licenses set
 | [Pandas](https://pandas.pydata.org/) | BSD-3-Clause | Pandas Development Team |
 | [Matplotlib](https://matplotlib.org/) | PSF-based | Matplotlib Development Team |
 | [scikit-learn](https://scikit-learn.org/) | BSD-3-Clause | scikit-learn Developers |   
+| [NuInsSeg](https://github.com/masih4/NuInsSeg) | Creative Commons Attribution 4.0 International | Authors <br>https://doi.org/10.1038/s41597-024-03117-2 |
 
 ---   
 

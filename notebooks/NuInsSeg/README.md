@@ -29,8 +29,7 @@ An overivew of the features integrated in our example walkthrough:
 - Python 3.10+   
 ---   
 
-#### Main {`sub`} Path & Notebooks
-
+#### Main {`sub`} Path & Notebooks:    
 **PATH: `~/notebooks/NuInsSeg/InstanceSegmentation_sgc/`**
 
 <!-- **1.**  -->

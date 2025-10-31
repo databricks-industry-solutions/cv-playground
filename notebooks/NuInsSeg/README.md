@@ -29,35 +29,34 @@ An overivew of the features integrated in our example walkthrough:
 - Python 3.10+   
 ---   
 
-#### Main {`sub`} Path & Notebooks:    
+#### Main Path & Notebooks:    
 **PATH: `~/notebooks/NuInsSeg/InstanceSegmentation_sgc/`**
 
 <!-- **1.**  -->
 - **Single-Node Serverless GPU Training**    
     - **NOTEBOOK: `CellTypes_InstanceSeg_TransferLearn_serverlessA10_v0.3.3.py`**    
-        - Transfer learning with YOLO11n-seg 
+        <!-- - Transfer learning with YOLO11n-seg 
             1. Default YOLO framework
-            1. MLflow tracking | logging | inferencing + UC Volumes integration 
-            
+            1. MLflow tracking | logging | inferencing + UC Volumes integration  
         - NuInsSeg dataset (665 images: 399 train, 133 val, 133 test)  
         - Single A10 GPU on Serverless Compute  
         - Full MLflow integration with checkpointing  
-        - Inference with metrics and visualizations  
+        - Inference with metrics and visualizations   -->
         
     - **Key Results**: 50 epochs training (~2 hours), comprehensive metrics tracking, automated inference pipeline
         - _update to use smaller number of epochs for preliminary quick tests_  
               
     - **Utility Helper Modules: `notebooks/NuInsSeg/InstanceSegmentation_sgc/utils/`**    
-            - `mlflow_callbacks.py` - MLflow integration, checkpointing, best model tracking    
+            <!-- - `mlflow_callbacks.py` - MLflow integration, checkpointing, best model tracking    
             - `inference_utils.py` - Model loading, inference, metrics calculation    
             - `visualization_utils.py` - Prediction visualizations, comparison plots    
             - `yolo_utils.py` - Path management, environment setup, data validation    
             - `summary_utils.py` - Training and inference summaries, markdown export    
             - `cache_utils.py` - CUDA cache management, GPU monitoring    
-            - `resume_callbacks.py` - Training resume functionality      
+            - `resume_callbacks.py` - Training resume functionality       -->
         <br> 
-                  
-        - **Production-ready MLflow integration:**  
+
+        <!-- - **Production-ready MLflow integration:**  
             - **Custom Callbacks**
                 ```python
 
@@ -86,7 +85,7 @@ An overivew of the features integrated in our example walkthrough:
                 - Best model weights
                 - Training plots and metrics CSV
                 - Dataset configuration (`data.yaml`)
-                - Inference visualizations (customizable via code)  
+                - Inference visualizations (customizable via code)   -->
 
 <!-- ---     -->
 <!-- **2.**  -->

@@ -1,8 +1,8 @@
 ### YOLO Instance Segmentation of CellType Nuclei 
 
-The application use case demonstrates how we can [fine-tune](https://docs.ultralytics.com/guides/model-evaluation-insights/#how-does-fine-tuning-work) custom data ([pre-formatted for YOLO framework](https://docs.ultralytics.com/datasets/segment/)) using [YOLO Instance Segmentation CV model](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/11/yolo11-seg.yaml).
+[Fine-tune](https://docs.ultralytics.com/guides/model-evaluation-insights/#how-does-fine-tuning-work) custom data ([pre-formatted for YOLO framework](https://docs.ultralytics.com/datasets/segment/)) using [YOLO Instance Segmentation CV model](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/11/yolo11-seg.yaml).
 
-Our example walkthrough highlights the following:    
+An overivew of the features integrated in our example walkthrough:    
 
 | **Feature** | **Details**    |
 |---------|-------------|
@@ -34,7 +34,8 @@ Our example walkthrough highlights the following:
 
 **PATH: `~/notebooks/NuInsSeg/InstanceSegmentation_sgc/`**
 
-**1.** **Single-Node Serverless GPU Training**    
+<!-- **1.**  -->
+**Single-Node Serverless GPU Training**    
 - **NOTEBOOK: `CellTypes_InstanceSeg_TransferLearn_serverlessA10_v0.3.3.py`**    
     - Transfer learning with YOLO11n-seg 
         1. Default YOLO framework
@@ -60,7 +61,7 @@ Our example walkthrough highlights the following:
     - **Production-ready MLflow integration:**  
         - **Custom Callbacks**
             ```python
-            
+
             from utils import mlflow_epoch_logger, configure_checkpoint_logging
 
             # Configure checkpoint frequency
@@ -88,13 +89,11 @@ Our example walkthrough highlights the following:
             - Dataset configuration (`data.yaml`)
             - Inference visualizations (customizable via code)  
 
-
 <!-- ---     -->
+<!-- **2.**  -->
+<!-- **Multi-Node Serverless GPU Training** [forthcoming...]    -->
 
-**2.** **Multi-Node Serverless GPU Training** [forthcoming...]   
-<br> 
 ---    
-
 
 <!-- `02_CellTypes_InstanceSeg_TransferLearn_sgcA10_MultipleGPU_MlflowLoggingModel.py` [to standardize nameing convention]
 
@@ -118,7 +117,7 @@ The repository includes detailed analysis of multi-node training challenges:
 
 See `02_CellTypes_InstanceSeg_TransferLearn_sgcA10_MultipleGPU_MlflowLoggingModel.py` [to standardize nameing convention] for full details. --> 
 
----   
+---      
 
 ##### Dependencies used in this cv-application use case and corresponding licenses:
 

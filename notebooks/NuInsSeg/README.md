@@ -90,16 +90,15 @@ An overivew of the features integrated in our example walkthrough:
 
 <!-- ---     -->
 <!-- **2.**  -->
-<!-- **Multi-Node Serverless GPU Training** [forthcoming...]    -->
 
----    
+**Multi-Node Serverless GPU Training** [forthcoming...]   
+<!-- ---     -->
 
-<!-- `02_CellTypes_InstanceSeg_TransferLearn_sgcA10_MultipleGPU_MlflowLoggingModel.py` [to standardize nameing convention]
-
+<!-- - **NOTEBOOK: `02_CellTypes_InstanceSeg_TransferLearn_sgcA10_MultipleGPU_MlflowLoggingModel.py`** [to standardize nameing convention]  
 - Distributed training with 8 A10 GPUs
 - PyTorch DDP (DistributedDataParallel)
 - NCCL backend for inter-GPU communication
-- Detailed analysis of distributed training challenges -->
+- Detailed analysis of distributed training challenges   -->
 
 <!-- **Note**: Includes comprehensive troubleshooting documentation for multi-node NCCL issues -->
 
@@ -107,7 +106,7 @@ An overivew of the features integrated in our example walkthrough:
 
 <!-- ### Distributed Training Considerations
 
-The repository includes detailed analysis of multi-node training challenges:
+The repository includes detailed analysis of multi-node training challenges:  
 
 1. **NCCL Communication Issues**: EFA/libfabric configuration
 2. **Dataset Loading**: Large dataset handling with distributed coordination
@@ -116,7 +115,7 @@ The repository includes detailed analysis of multi-node training challenges:
 
 See `02_CellTypes_InstanceSeg_TransferLearn_sgcA10_MultipleGPU_MlflowLoggingModel.py` [to standardize nameing convention] for full details. --> 
 
----      
+<!-- ---       --> 
 
 ##### Dependencies used in this cv-application use case and corresponding licenses:
 

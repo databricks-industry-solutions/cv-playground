@@ -1,27 +1,169 @@
-# Databricks Asset Bundle files
-.databricks/
+# ============================================================================
+# .gitignore for CV Playground - Databricks Project
+# ============================================================================
 
-# IDE files
+# Python
+# ----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+# ----------------------------------------------------------------------------
+venv/
+ENV/
+env/
+.venv
+pipenv/
+.python-version
+
+# Databricks & MLflow
+# ----------------------------------------------------------------------------
+.databricks/
+mlruns/
+mlartifacts/
+*.mlflow
+*.db
+*.db-journal
+
+# Secrets & Credentials
+# ----------------------------------------------------------------------------
+*.env
+.env.*
+!env.example
+secrets.*
+credentials.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+id_rsa*
+*.ppk
+
+# Configuration files that might contain secrets
+# ----------------------------------------------------------------------------
+config.ini
+config.yaml
+config.yml
+settings.ini
+settings.yaml
+settings.yml
+*-secret.yaml
+*-secret.yml
+*-secrets.yaml
+*-secrets.yml
+
+# Databricks Personal Access Tokens
+# ----------------------------------------------------------------------------
+*.token
+.databrickscfg
+databricks.cfg
+
+# AWS Credentials
+# ----------------------------------------------------------------------------
+.aws/credentials
+.aws/config
+
+# Azure Credentials
+# ----------------------------------------------------------------------------
+.azure/
+
+# GCP Credentials
+# ----------------------------------------------------------------------------
+.gcp/
+*-service-account.json
+
+# IDE & Editor
+# ----------------------------------------------------------------------------
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# OS files
+*~
 .DS_Store
 Thumbs.db
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-dist/
-build/
-
-# Jupyter Notebook checkpoints
+# Jupyter Notebook
+# ----------------------------------------------------------------------------
 .ipynb_checkpoints/
+*-checkpoint.ipynb
 
-# Environment files
-.env
-.env.local 
+# YOLO & Computer Vision
+# ----------------------------------------------------------------------------
+runs/
+weights/
+*.pt
+*.pth
+*.onnx
+*.weights
+*.cfg
+wandb/
+
+# Large datasets (add specific patterns as needed)
+# ----------------------------------------------------------------------------
+datasets/raw/
+datasets/processed/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Logs
+# ----------------------------------------------------------------------------
+*.log
+logs/
+*.out
+*.err
+
+# Testing
+# ----------------------------------------------------------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Temporary files
+# ----------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# OS Generated
+# ----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Project Specific - Add any custom patterns below
+# ----------------------------------------------------------------------------
+# Uncomment if you have local experiment data
+# experiments/local/
+# checkpoints/local/

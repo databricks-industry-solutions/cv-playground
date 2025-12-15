@@ -663,7 +663,14 @@ len(dbutils.fs.ls(f"/Volumes/{CATALOG}/{SCHEMA}/{VOLUME_NAME}/imagenet_tiny200_m
 # COMMAND ----------
 
 # DBTITLE 1,merge_index
+import os
 from streaming.base.util import merge_index
+
+## 2025Dec -- code requires removal of json prior to merge and reindexing
+index_path = f"/Volumes/{CATALOG}/{SCHEMA}/{VOLUME_NAME}/imagenet_tiny200_mds_20X_train_append/index.json"
+if os.path.exists(index_path):
+    print(f"Removing existing index file: {index_path}")
+    os.remove(index_path)
 
 merge_index(f"/Volumes/{CATALOG}/{SCHEMA}/{VOLUME_NAME}/imagenet_tiny200_mds_20X_train_append")
 

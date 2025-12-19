@@ -29,8 +29,8 @@ An overivew of the features integrated in our example walkthrough:
 - Python 3.10+   
 ---   
 
-#### Main Path & Notebooks:    
-**PATH: `~/notebooks/NuInsSeg/InstanceSegmentation_sgc/`**
+#### Main Path & Notebook(s):    
+**PATH: `~/projects/NuInsSeg/InstanceSegmentation_sgc/`**
 
 <!-- **1.**  -->
 - **Single-Node Serverless GPU Training**    
@@ -46,7 +46,7 @@ An overivew of the features integrated in our example walkthrough:
     - **Key Results**: 50 epochs training (~2 hours), comprehensive metrics tracking, automated inference pipeline
         - _update to use smaller number of epochs for preliminary quick tests_  
               
-    - **Utility Helper Modules: `notebooks/NuInsSeg/InstanceSegmentation_sgc/utils/`**    
+    - **Utility Helper Modules: `projects/NuInsSeg/InstanceSegmentation_sgc/utils/`**    
             <!-- - `mlflow_callbacks.py` - MLflow integration, checkpointing, best model tracking    
             - `inference_utils.py` - Model loading, inference, metrics calculation    
             - `visualization_utils.py` - Prediction visualizations, comparison plots    

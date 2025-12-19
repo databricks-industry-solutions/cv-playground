@@ -6,7 +6,7 @@ Where needed we may restructure to make it more relevant to the repository examp
 ```
 
 cv-playground/
-├── notebooks/
+├── projects/
 │   ├── {cv-playground use case example folder #0}
 │   └── NuInsSeg/
 │       └── README.md        ## CV-Playground Use Case Folder README

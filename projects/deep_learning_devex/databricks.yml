@@ -1,0 +1,78 @@
+bundle:
+  name: dl_dep_mgr
+
+include:
+  - resources/*.yml
+
+sync:
+  include:
+    - src/**/*.py
+    - requirements.txt
+    - dist/*.whl
+
+variables:
+  catalog:
+    description: Unity Catalog name for outputs (models, logs)
+    default: dev_computer_vision
+
+  schema:
+    description: Schema name for outputs
+    default: dl_dep_mgr
+
+  model_name:
+    description: Name for the registered model
+    default: clip_finetuned
+
+  model_volume:
+    description: Volume name for model weight outputs
+    default: models
+
+  logs_volume:
+    description: Volume name for cluster logs
+    default: logs
+
+  source_catalog:
+    description: Unity Catalog name for source data
+    default: dev_computer_vision
+
+  source_schema:
+    description: Schema name for source data
+    default: distributed_clip
+
+  source_volume:
+    description: Volume name containing MDS dataset
+    default: flickr30k_mds
+
+  node_type_id:
+    description: Node type for GPU clusters
+    default: g5.12xlarge
+
+  single_node_type_id:
+    description: Node type for single-node tasks
+    default: i3.xlarge
+
+  user_name:
+    description: User name for single-user clusters
+    default: <your_email@databricks.com>
+
+artifacts:
+  dl_dep_mgr_wheel:
+    type: whl
+    build: "poetry build -f wheel"
+    path: "."
+
+targets:
+  dev:
+    mode: development
+    default: true
+    presets:
+      name_prefix: ""
+    workspace:
+      host: <your_workspace_url>
+      root_path: /Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}
+
+  prod:
+    mode: production
+    workspace:
+      host: <your_workspace_url>
+      root_path: /Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}

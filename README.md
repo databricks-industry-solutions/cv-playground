@@ -8,7 +8,11 @@
 
 ## Overview
 
-This repository is intended to be a _`"playground"`_ where we share **Applications of Computer Vision Solutions on Databricks**. As a start we will highlight [Instance Segmentation](https://www.ultralytics.com/glossary/instance-segmentation) application(s) in medical imaging using [Ultralytics **YOLO** (You Only Look Once)](https://github.com/ultralytics/ultralytics) framework. Other CV applications will be added when available.    
+This repository is intended to be a _`"playground"`_ where we share **Applications of Computer Vision Solutions on Databricks**. As a start we will highlight [Instance Segmentation](https://www.ultralytics.com/glossary/instance-segmentation) application(s) in medical imaging using [Ultralytics **YOLO** (You Only Look Once)](https://github.com/ultralytics/ultralytics) framework. 
+
+In addition we have now added an example of a local developer experience using asset bundles, Python wheel tasks, shell scripts, and a patched torchdistributor framework for multi-node/multi-GPU training on Databricks with a CLIP model and a Kaggle dataset. Focus is intended to be on functionality, developer experience, local export of cluster logging to Volumes rather than results of the training itself. See deep_learning_devex folder.
+
+Other CV applications will be added when available.    
 <!-- _... stay tuned!_   -->    
 
 ---   
@@ -27,6 +31,8 @@ Our example walkthrough highlights the following:
 | [MLflow Integration](https://mlflow.org/docs/latest/) | Integrates [Databricks managed MLflow](https://docs.databricks.com/aws/en/mlflow/#databricks-managed-mlflow) for experiment tracking, model logging, and artifact management—essential for reproducibility, model versioning, and collaborative workflow. |
 | [Unity Catalog Volumes](https://docs.databricks.com/data-governance/unity-catalog/index.html) | Provides data governance and storage, crucial for modern MLOps. Enables secure, governed, and scalable storage with fine-grained access control, reproducible workflows, data lineage, and compliance across collaborative ML projects. |    
    
+
+
 
 ---   
 

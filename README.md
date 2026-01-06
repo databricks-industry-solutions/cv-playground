@@ -33,8 +33,8 @@ Our example walkthrough highlights the following:
 ## Getting Started
 
 Clone this repository to your Databricks Workspace.  
-You will find the example applications in each subfolder within the `/notebooks` folder.   
-Follow the `README.md` within each of the `/notebooks/{application_example_folder}/README.md` to get started.  
+You will find the example applications in each subfolder within the `/projects` folder.   
+Follow the `README.md` within each of the `/projects/{application_example_folder}/README.md` to get started.  
 
 ---     
 

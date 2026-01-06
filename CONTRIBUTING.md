@@ -5,7 +5,7 @@
 ### Creating New CV-Playground Applications on Databricks Examples
 - Please review [REPO_structure.md](REPO_structure.md) before getting started.
 
-- For contributors developing new CV Applications examples, create a new folder under `notebooks/` and place all related files inside that folder.
+- For contributors developing new CV Applications examples, create a new folder under `projects/` and place all related files inside that folder.
 
 - Include a `README.md` specific to your cv-playground application that explains:
 

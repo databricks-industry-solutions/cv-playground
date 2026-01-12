@@ -10,7 +10,7 @@
 
 This repository is intended to be a _`"playground"`_ where we share **Applications of Computer Vision Solutions on Databricks**. As a start we will highlight [Instance Segmentation](https://www.ultralytics.com/glossary/instance-segmentation) application(s) in medical imaging using [Ultralytics **YOLO** (You Only Look Once)](https://github.com/ultralytics/ultralytics) framework. 
 
-In addition we have now added an example of a local developer experience using asset bundles, Python wheel tasks, shell scripts, and a patched torchdistributor framework for multi-node/multi-GPU training on Databricks with a CLIP model and a Kaggle dataset. Focus is intended to be on functionality, developer experience, local export of cluster logging to Volumes rather than results of the training itself. See deep_learning_devex folder.
+As a second contribution we have now added an example of a local developer experience using asset bundles, Python wheel tasks, shell scripts, and a patched torchdistributor framework for multi-node/multi-GPU training on Databricks with a CLIP model. Uses synthetic data for local testing and user-provided MDS datasets for distributed training. Focus is intended to be on functionality, developer experience, local export of cluster logging to Volumes rather than results of the training itself. See deep_learning_devex folder.
 
 Other CV applications will be added when available.    
 <!-- _... stay tuned!_   -->    

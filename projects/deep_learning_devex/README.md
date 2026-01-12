@@ -27,8 +27,6 @@ poetry install --with dev
 
 Run locally, currently this is an integration test really, not an effective training step.
 
-Unit tests not all passing currently but demonstrates local unit tests.
-
 ```bash
 poetry run python -m dl_dep_mgr.train --local
 
@@ -110,7 +108,7 @@ Update `pyproject.toml` to match your DBR's Python version and regenerate lock f
 
 ```bash
 # Full workflow: build, deploy, run, download logs (logs cleaned after).
-# Current version picks up the most recent logs - working on a version that outputs the log ID and always captures correctly even with logging failure.
+# Current version picks up the most recent logs - A version that outputs the log ID and always captures correctly even with logging failure will be added when available
 ./dev.sh clip_training_job
 
 # Keep logs for inspection

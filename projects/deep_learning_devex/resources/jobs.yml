@@ -1,0 +1,273 @@
+resources:
+  jobs:
+    clip_training_job:
+      name: "[${bundle.target}] CLIP Training Pipeline"
+
+      tasks:
+        - task_key: train_clip
+          python_wheel_task:
+            package_name: dl_dep_mgr
+            entry_point: train
+            parameters:
+              - "--catalog=${var.catalog}"
+              - "--schema=${var.schema}"
+              - "--model-name=${var.model_name}"
+              - "--model-volume=${var.model_volume}"
+              - "--source-catalog=${var.source_catalog}"
+              - "--source-schema=${var.source_schema}"
+              - "--source-volume=${var.source_volume}"
+              - "--batch-size=32"
+              - "--epochs=3"
+              - "--wheel-path=/Workspace/Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}/files/dist/dl_dep_mgr-0.1.0-py3-none-any.whl"
+              - "--requirements-path=/Workspace/Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}/files/requirements.txt"
+              - "--experiment=/Users/${var.user_name}/${bundle.name}_training"
+              - "--logs-volume=${var.logs_volume}"
+
+          new_cluster:
+            spark_version: "17.3.x-gpu-ml-scala2.13"
+            node_type_id: ${var.node_type_id}
+            num_workers: 2
+            spark_conf:
+              spark.task.resource.gpu.amount: "4"
+            data_security_mode: SINGLE_USER
+            single_user_name: ${var.user_name}
+            aws_attributes:
+              zone_id: auto
+              availability: ON_DEMAND
+            autotermination_minutes: 60
+            cluster_log_conf:
+              volumes:
+                destination: /Volumes/${var.catalog}/${var.schema}/${var.logs_volume}/cluster_log
+
+          libraries:
+            - whl: ../dist/*.whl
+            - requirements: ../requirements.txt
+
+        - task_key: deploy_serving
+          depends_on:
+            - task_key: train_clip
+
+          python_wheel_task:
+            package_name: dl_dep_mgr
+            entry_point: deploy_serving
+            parameters:
+              - "--catalog=${var.catalog}"
+              - "--schema=${var.schema}"
+              - "--model-name=${var.model_name}"
+              - "--model-alias=champion"
+              - "--scale-to-zero"
+              - "--workload-size=Small"
+
+          new_cluster:
+            spark_version: "17.3.x-scala2.13"
+            node_type_id: ${var.single_node_type_id}
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*]"
+              spark.databricks.cluster.profile: singleNode
+            custom_tags:
+              ResourceClass: SingleNode
+            data_security_mode: SINGLE_USER
+            single_user_name: ${var.user_name}
+            aws_attributes:
+              zone_id: auto
+              availability: ON_DEMAND
+
+          libraries:
+            - whl: ../dist/*.whl
+            - requirements: ../requirements.txt
+
+      max_concurrent_runs: 1
+
+    # Training-only job (no deployment)
+    clip_train_only_job:
+      name: "[${bundle.target}] CLIP Training Only"
+
+      tasks:
+        - task_key: train_clip
+          python_wheel_task:
+            package_name: dl_dep_mgr
+            entry_point: train
+            parameters:
+              - "--catalog=${var.catalog}"
+              - "--schema=${var.schema}"
+              - "--model-name=${var.model_name}"
+              - "--model-volume=${var.model_volume}"
+              - "--source-catalog=${var.source_catalog}"
+              - "--source-schema=${var.source_schema}"
+              - "--source-volume=${var.source_volume}"
+              - "--batch-size=32"
+              - "--epochs=3"
+              - "--wheel-path=/Workspace/Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}/files/dist/dl_dep_mgr-0.1.0-py3-none-any.whl"
+              - "--requirements-path=/Workspace/Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}/files/requirements.txt"
+              - "--experiment=/Users/${var.user_name}/${bundle.name}_training"
+              - "--logs-volume=${var.logs_volume}"
+
+          new_cluster:
+            spark_version: "17.3.x-gpu-ml-scala2.13"
+            node_type_id: ${var.node_type_id}
+            num_workers: 2
+            spark_conf:
+              spark.task.resource.gpu.amount: "4"
+            data_security_mode: SINGLE_USER
+            single_user_name: ${var.user_name}
+            aws_attributes:
+              zone_id: auto
+              availability: ON_DEMAND
+            autotermination_minutes: 60
+            cluster_log_conf:
+              volumes:
+                destination: /Volumes/${var.catalog}/${var.schema}/${var.logs_volume}/cluster_log
+
+          libraries:
+            - whl: ../dist/*.whl
+            - requirements: ../requirements.txt
+
+      max_concurrent_runs: 1
+
+    # Deployment-only job
+    clip_deploy_only_job:
+      name: "[${bundle.target}] CLIP Deploy Only"
+
+      tasks:
+        - task_key: deploy_serving
+          python_wheel_task:
+            package_name: dl_dep_mgr
+            entry_point: deploy_serving
+            parameters:
+              - "--catalog=${var.catalog}"
+              - "--schema=${var.schema}"
+              - "--model-name=${var.model_name}"
+              - "--model-alias=champion"
+
+          new_cluster:
+            spark_version: "17.3.x-scala2.13"
+            node_type_id: ${var.single_node_type_id}
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*]"
+              spark.databricks.cluster.profile: singleNode
+            custom_tags:
+              ResourceClass: SingleNode
+            data_security_mode: SINGLE_USER
+            single_user_name: ${var.user_name}
+            aws_attributes:
+              zone_id: auto
+              availability: ON_DEMAND
+
+          libraries:
+            - whl: ../dist/*.whl
+            - requirements: ../requirements.txt
+
+      max_concurrent_runs: 1
+
+    # Register pretrained model and deploy (no custom training, no MDS needed)
+    clip_pretrained_deploy_job:
+      name: "[${bundle.target}] CLIP Pretrained Register + Deploy"
+
+      tasks:
+        - task_key: register_pretrained
+          python_wheel_task:
+            package_name: dl_dep_mgr
+            entry_point: train
+            parameters:
+              - "--catalog=${var.catalog}"
+              - "--schema=${var.schema}"
+              - "--model-name=${var.model_name}"
+              - "--model-volume=${var.model_volume}"
+              - "--skip-training"
+              - "--wheel-path=/Workspace/Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}/files/dist/dl_dep_mgr-0.1.0-py3-none-any.whl"
+              - "--requirements-path=/Workspace/Users/${var.user_name}/.bundle/${bundle.name}/${bundle.target}/files/requirements.txt"
+              - "--experiment=/Users/${var.user_name}/${bundle.name}_training"
+              - "--logs-volume=${var.logs_volume}"
+
+          new_cluster:
+            spark_version: "17.3.x-scala2.13"
+            node_type_id: ${var.single_node_type_id}
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*]"
+              spark.databricks.cluster.profile: singleNode
+            custom_tags:
+              ResourceClass: SingleNode
+            data_security_mode: SINGLE_USER
+            single_user_name: ${var.user_name}
+            aws_attributes:
+              zone_id: auto
+              availability: ON_DEMAND
+
+          libraries:
+            - whl: ../dist/*.whl
+            - requirements: ../requirements.txt
+
+        - task_key: deploy_serving
+          depends_on:
+            - task_key: register_pretrained
+
+          python_wheel_task:
+            package_name: dl_dep_mgr
+            entry_point: deploy_serving
+            parameters:
+              - "--catalog=${var.catalog}"
+              - "--schema=${var.schema}"
+              - "--model-name=${var.model_name}"
+              - "--model-alias=champion"
+              - "--scale-to-zero"
+              - "--workload-size=Small"
+
+          new_cluster:
+            spark_version: "17.3.x-scala2.13"
+            node_type_id: ${var.single_node_type_id}
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*]"
+              spark.databricks.cluster.profile: singleNode
+            custom_tags:
+              ResourceClass: SingleNode
+            data_security_mode: SINGLE_USER
+            single_user_name: ${var.user_name}
+            aws_attributes:
+              zone_id: auto
+              availability: ON_DEMAND
+
+          libraries:
+            - whl: ../dist/*.whl
+            - requirements: ../requirements.txt
+
+      max_concurrent_runs: 1
+
+    # Inference test job - validates model can be loaded and run predictions
+    clip_inference_test_job:
+      name: "[${bundle.target}] CLIP Inference Test"
+
+      tasks:
+        - task_key: test_inference
+          python_wheel_task:
+            package_name: dl_dep_mgr
+            entry_point: test_inference
+            parameters:
+              - "--catalog=${var.catalog}"
+              - "--schema=${var.schema}"
+              - "--model-name=${var.model_name}"
+              - "--alias=champion"
+
+          new_cluster:
+            spark_version: "17.3.x-scala2.13"
+            node_type_id: ${var.single_node_type_id}
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*]"
+              spark.databricks.cluster.profile: singleNode
+            custom_tags:
+              ResourceClass: SingleNode
+            data_security_mode: SINGLE_USER
+            single_user_name: ${var.user_name}
+            aws_attributes:
+              zone_id: auto
+              availability: ON_DEMAND
+
+          libraries:
+            - whl: ../dist/*.whl
+            - requirements: ../requirements.txt
+
+      max_concurrent_runs: 1

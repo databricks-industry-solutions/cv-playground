@@ -24,7 +24,7 @@ mlflow = "^3.0.0"
 # Avoiding some volume and mlflow issues.
 databricks-sdk = "0.49.0"
 # Utilities
-pillow = "11.1.0"
+pillow = "12.1.1"
 pydantic = "^2.9.0"
 pydantic-settings = "^2.5.0"
 # Pin to avoid version-marker conflicts in requirements.txt

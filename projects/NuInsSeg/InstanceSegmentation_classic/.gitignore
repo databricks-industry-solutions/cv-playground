@@ -1,0 +1,8 @@
+# Ignore .devs folder and its contents
+.devs/
+
+# Ignore PyTorch model files
+*.pt
+
+# Ignore datasets folder
+datasets/

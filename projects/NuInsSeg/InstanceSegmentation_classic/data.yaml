@@ -1,0 +1,6 @@
+names:
+- Nuclei
+nc: 1
+test: ./datasets/test/images
+train: ./datasets/train/images
+val: ./datasets/val/images

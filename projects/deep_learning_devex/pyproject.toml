@@ -18,7 +18,7 @@ torchvision = "0.22.0"
 open-clip-torch = "^2.24.0"
 mosaicml-streaming = "^0.10.0"
 # MLflow and Databricks - DBR 17.3 versions
-mlflow = "^3.0.0"
+mlflow = "^3.8.0rc0"
 # Databricks SDK is pinned to avoid version-marker conflicts.
 # For now, recommend keeping versions between 0.49 and 0.68.
 # Avoiding some volume and mlflow issues.

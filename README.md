@@ -12,9 +12,9 @@ This repository is intended to be a _`"playground"`_ where we share **Applicatio
 
 We currently have three projects:
 
-1. [**Instance Segmentation**](projects/NuInsSeg/) in medical imaging — fine-tuning [YOLO11-seg](https://docs.ultralytics.com/tasks/segment/) on the [NuInsSeg dataset](https://github.com/masih4/NuInsSeg) for nuclei instance segmentation in H&E-stained histological images, using [Databricks Serverless GPU](https://docs.databricks.com/aws/en/compute/serverless/gpu) compute.
+1. [**Instance Segmentation**](projects/NuInsSeg/) in medical imaging — fine-tuning [YOLO11-seg](https://docs.ultralytics.com/tasks/segment/) on the [NuInsSeg dataset](https://github.com/masih4/NuInsSeg) for nuclei instance segmentation in H&E-stained histological images, using [Databricks AI Runtime](https://docs.databricks.com/aws/en/compute/serverless/gpu); Databricks' Serverless GPU compute.
 
-2. [**Object Detection**](projects/ultralytics_databricks_examples/) on Databricks — end-to-end [YOLO11n](https://docs.ultralytics.com/models/yolo11/) training with [COCO128](https://www.kaggle.com/datasets/ultralytics/coco128), demonstrating both **Databricks AI Runtime** and **Classic** compute across single and multi-GPU configurations.
+2. [**Object Detection**](projects/ultralytics_databricks_examples/) on Databricks — end-to-end [YOLO11n](https://docs.ultralytics.com/models/yolo11/) training with [COCO128](https://www.kaggle.com/datasets/ultralytics/coco128), demonstrating both [**Databricks AI Runtime**](https://docs.databricks.com/aws/en/compute/serverless/gpu) and [**Classic**](https://docs.databricks.com/aws/en/compute/classic.html) compute across single and multi-GPU configurations.
 
 3. [**Deep Learning Developer Experience**](projects/deep_learning_devex/) — a local developer experience for multi-node/multi-GPU training on Databricks with a CLIP model, using asset bundles, Python wheel tasks, shell scripts, and a patched TorchDistributor framework. Uses synthetic data for local testing and user-provided MDS datasets for distributed training. Focus is on functionality, developer experience, and cluster log export to Volumes.
 
@@ -25,7 +25,7 @@ Other CV applications will be added when available.
 | **Project** | **Model** | **Use Case** | **Compute** | **Status** |
 |-------------|-----------|-------------|-------------|------------|
 | [`NuInsSeg`](projects/NuInsSeg/) | YOLO11-seg | Instance Segmentation of Cell Nuclei (Medical Imaging) | Serverless GPU | Available |
-| [`NuInsSeg` — Classic](https://github.com/databricks-industry-solutions/cv-playground/tree/mmt_nuinsseg) | YOLO11-seg | Custom Data to YOLO Format + Fine-Tuning (Medical Imaging) | Classic Compute | Coming Soon |
+| `NuInsSeg` — Classic | YOLO11-seg | Custom Data to YOLO Format + Fine-Tuning (Medical Imaging) | Classic Compute | Coming Soon |
 | [`ultralytics_databricks_examples`](projects/ultralytics_databricks_examples/) | YOLO11n-detect | Object Detection (COCO128) | AI Runtime + Classic | Available |
 | [`deep_learning_devex`](projects/deep_learning_devex/) | CLIP | Multi-Node Multi-GPU Training DevEx | Classic Compute | Available |
 

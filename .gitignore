@@ -29,3 +29,6 @@ build/
 # Dev Files 
 _devs
 .databricks
+
+# Blog drafts and assets (local only)
+.blog/

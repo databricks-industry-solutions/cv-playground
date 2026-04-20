@@ -45,6 +45,24 @@ Reference notebooks for fine-tuning [Stable Diffusion 2 Inpainting](https://hugg
 - Unity Catalog with a Volume for data storage
 - HuggingFace token (for gated model access)
 
+## Dependencies and Licenses
+
+| Package | License | Copyright |
+|---------|---------|-----------|
+| [Stable Diffusion 2 Inpainting](https://huggingface.co/sd2-community/stable-diffusion-2-inpainting) | CreativeML Open RAIL++-M | Stability AI / sd2-community |
+| [OTR Dataset](https://huggingface.co/datasets/cyberagent/OTR) | CC BY 4.0 | CyberAgent |
+| [PyTorch](https://pytorch.org/) | BSD-3-Clause | PyTorch Contributors |
+| [Diffusers](https://github.com/huggingface/diffusers) | Apache-2.0 | Hugging Face |
+| [Transformers](https://github.com/huggingface/transformers) | Apache-2.0 | Hugging Face |
+| [Accelerate](https://github.com/huggingface/accelerate) | Apache-2.0 | Hugging Face |
+| [bitsandbytes](https://github.com/bitsandbytes-foundation/bitsandbytes) | MIT | bitsandbytes Contributors |
+| [MosaicML Streaming](https://github.com/mosaicml/streaming) | Apache-2.0 | MosaicML / Databricks |
+| [MLflow](https://mlflow.org/) | Apache-2.0 | MLflow Project |
+| [Pillow](https://python-pillow.org/) | HPND | Pillow Contributors |
+| [NumPy](https://numpy.org/) | BSD-3-Clause | NumPy Developers |
+| [Matplotlib](https://matplotlib.org/) | PSF-based | Matplotlib Development Team |
+| [safetensors](https://github.com/huggingface/safetensors) | Apache-2.0 | Hugging Face |
+
 ## Notes
 
 - This is reference code — adapt paths, hyperparameters, and data pipeline to your use case

@@ -32,3 +32,6 @@ _devs
 
 # Blog drafts and assets (local only)
 .blog/
+
+# YOLO model weights — downloaded at runtime via ultralytics, not committed
+projects/ultralytics_databricks_examples/*.pt

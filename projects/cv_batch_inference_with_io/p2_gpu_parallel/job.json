@@ -1,0 +1,32 @@
+{
+  "name": "bench_p2_gpu_parallel",
+  "tasks": [
+    {
+      "task_key": "infer",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/<your-username>/bench/p2_gpu_parallel/p2_gpu_parallel",
+        "source": "WORKSPACE",
+        "base_parameters": {
+          "catalog": "main",
+          "schema": "cv",
+          "model_name": "bench_vit",
+          "model_alias": "prod",
+          "dataset": "coco",
+          "image_dir": "/Volumes/main/cv/coco2017/val2017",
+          "image_glob": "*.jpg",
+          "n_images": "3925",
+          "write_workers": "32",
+          "experiment": "/Users/<your-username>/bench_vit_inference"
+        }
+      },
+      "environment_key": "aiv5",
+      "compute": { "hardware_accelerator": "GPU_1xA10" }
+    }
+  ],
+  "environments": [
+    {
+      "environment_key": "aiv5",
+      "spec": { "base_environment": "databricks_ai_v5" }
+    }
+  ]
+}

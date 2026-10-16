@@ -1,0 +1,33 @@
+{
+  "name": "bench_p6_ai_query",
+  "tasks": [
+    {
+      "task_key": "infer",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/<your-username>/bench/p6_ai_query/p6_ai_query",
+        "source": "WORKSPACE",
+        "base_parameters": {
+          "catalog": "main",
+          "schema": "cv",
+          "endpoint": "bench-vit-serving",
+          "dataset": "coco",
+          "image_dir": "/Volumes/main/cv/coco2017/val2017",
+          "file_glob": "*.jpg",
+          "n_images": "3925",
+          "num_partitions": "128",
+          "experiment": "/Users/<your-username>/bench_vit_inference"
+        }
+      },
+      "environment_key": "spk"
+    }
+  ],
+  "environments": [
+    {
+      "environment_key": "spk",
+      "spec": {
+        "client": "3",
+        "dependencies": ["Pillow"]
+      }
+    }
+  ]
+}

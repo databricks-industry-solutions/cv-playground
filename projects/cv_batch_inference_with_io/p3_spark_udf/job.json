@@ -1,0 +1,34 @@
+{
+  "name": "bench_p3_spark_udf",
+  "tasks": [
+    {
+      "task_key": "infer",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/<your-username>/bench/p3_spark_udf/p3_spark_udf",
+        "source": "WORKSPACE",
+        "base_parameters": {
+          "catalog": "main",
+          "schema": "cv",
+          "model_name": "bench_vit",
+          "model_alias": "prod",
+          "dataset": "coco",
+          "image_dir": "/Volumes/main/cv/coco2017/val2017",
+          "image_glob": "*.jpg",
+          "n_images": "3925",
+          "num_partitions": "128",
+          "experiment": "/Users/<your-username>/bench_vit_inference"
+        }
+      },
+      "environment_key": "spk"
+    }
+  ],
+  "environments": [
+    {
+      "environment_key": "spk",
+      "spec": {
+        "client": "3",
+        "dependencies": ["torch", "torchvision", "transformers"]
+      }
+    }
+  ]
+}
